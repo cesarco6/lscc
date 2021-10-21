@@ -21,7 +21,7 @@ class SearchController extends Controller
                                                 ->phone($phone)
                                                 ->movil($movil)
                                                 ->email($email)
-                                                ->paginate(4)
+                                                ->paginate()
                                             ]);
         
     
