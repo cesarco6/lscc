@@ -26,4 +26,9 @@ class SearchController extends Controller
         
     
     }
+
+    public function prosen()
+    {
+        return view('admin.search.prosen');
+    }
 }

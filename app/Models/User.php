@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Seller;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -42,6 +43,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    
+    public function seller()
+    {
+        return $this->hasOne(Seller::class);
+    }
 
 }

@@ -14,8 +14,8 @@ class CreateProspectsTable extends Migration
     public function up()
     {
         Schema::create('prospects', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('seller_id')->unsigned()->nullable();
+            $table->id();            
+            $table->bigInteger('seller_id')->unsigned()->nullable();           
             $table->string('name');
             $table->string('phone');
             $table->string('movil')->nullable(); 
@@ -23,7 +23,10 @@ class CreateProspectsTable extends Migration
             $table->string('city');                       
             $table->text('review');
             $table->string('email')->nullable();
-            $table->date('regis_at');             
+            $table->string('address')->nullable();
+            $table->string('cp')->nullable();;
+            $table->date('regis_at');
+            $table->string('status')->nullable();
             $table->timestamps();                    
 
         });

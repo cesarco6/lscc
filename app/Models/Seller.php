@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\Prospect;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,12 +15,17 @@ class Seller extends Model
     protected $table = "sellers";
 
     protected $fillable = [
-        'name','email'
+        'user_id','nivel'
     ];
 
     public function prospects()
     {
         return $this->hasMany(Prospect::class);
+    }
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
     }
 
 }

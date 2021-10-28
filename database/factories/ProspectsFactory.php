@@ -25,13 +25,14 @@ class ProspectsFactory extends Factory
             'name'  =>  $this->faker->name,
             'phone' =>  $this->faker->phoneNumber,
             'movil' =>  $this->faker->phoneNumber,            
-            'email' =>  $this->faker->unique()->safeEmail,
+            'email' =>  $this->faker->unique()->email,
             'city'  =>  $this->faker->city,
-            'typeofprod'    =>  "QUANTUM IR810",
-            'seller_id' =>  $this->faker->biasedNumberBetween(1, 7),
+            'typeofprod'    =>  $this->faker->randomElement($array = array ('TERAPEUTICO','DENTAL','VETERINARIO','BEAUTY','SPORT')), // 'b'
+            'seller_id' =>  $this->faker->biasedNumberBetween(1, 6),
             'review'    =>  $this->faker->text(),
-            'regis_at'  =>  $this->faker->dateTimeBetween('-27 week', '-1 week')    
-            
+            'regis_at'  =>  $this->faker->dateTimeBetween('-41 week', '-1 week'),
+            'address'   =>  $this->faker->streetAddress,
+            'cp'        =>  $this->faker->postcode,            
         ];
     }
 }

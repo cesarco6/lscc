@@ -16,7 +16,7 @@ class Prospect extends Model
 
     protected $fillable = [
         'seller_id','name','phone','movil','typeofprod',
-        'city','review','email','regis_at'
+        'city','review','email','address','cp','regis_at','status'
     ];
 
     public function seller()

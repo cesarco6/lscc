@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin\Prospects;
 
+
+use App\Models\User;
 use App\Models\Seller;
 use App\Models\Prospect;
 use Illuminate\Http\Request;
@@ -21,9 +23,10 @@ class ProspectsController extends Controller
             'prospects' =>  Prospect::latest()->paginate(5),
             'seller'   =>  Seller::latest()
         ]  */
-        $prospects = Prospect::latest()->paginate();
+        $prospects = Prospect::latest()->paginate(5);
         $nomt = Prospect::all();
-        return view('admin.prospects.index', compact('prospects', 'nomt'));
+        $user = User::all();
+        return view('admin.prospects.index', compact('prospects', 'nomt','user'));
         
                                                     
         //dd($prospects);
@@ -37,7 +40,8 @@ class ProspectsController extends Controller
     public function create()
     {
         $sellers = Seller::all();
-        return view('admin.prospects.create',compact('sellers')); 
+        $users = User::all();
+        return view('admin.prospects.create',compact('sellers', 'users')); 
         // Go to the prospects creation form
         //return view('admin.prospects.create', compact('sellers'));
         //dd($sellers);

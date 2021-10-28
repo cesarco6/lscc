@@ -20,3 +20,5 @@ Route::get('/fileinte', [ExcelController::class, 'fileinte'])->name('import');
 Route::post('/upload', [ExcelController::class, 'loadfile'])->name('import.excel');
 
 Route::get('/prosearch', [SearchController::class, 'index'])->name('regmat');
+
+Route::get('/prosent', [SearchController::class, 'prosen'])->name('prosen');

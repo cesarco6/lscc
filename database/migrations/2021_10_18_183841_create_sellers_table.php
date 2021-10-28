@@ -15,10 +15,11 @@ class CreateSellersTable extends Migration
     {
         Schema::create('sellers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamps();
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->string('nivel')->nullable();
+            $table->timestamps();            
         });
+       
     }
 
     /**

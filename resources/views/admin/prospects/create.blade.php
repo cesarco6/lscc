@@ -1,4 +1,4 @@
-@extends('layouts.app1')
+@extends('layouts.panel')
 
 @section('content')
     <div class="container">
@@ -8,19 +8,7 @@
                     <div class="card-body">
                         <div class="d-flex">
                             <h1>Crea Prospecto</h1>
-                            <div class="ml-auto">
-                                <!--
-                                <div class="dropdown">
-                                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Acciones
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="{{route('admin.prospects.dashboard')}}">Dashboard</a>
-                                    <a class="dropdown-item" href="#">Actualiza</a>
-                                    <a class="dropdown-item" href="#">Borra</a>
-                                    </div>
-                                </div>
-                            -->
+                            <div class="ml-auto">                               
                             </div>
                         </div>
                         <hr>
@@ -62,7 +50,7 @@
                                 <select name="seller_id" id="inputsell" class="form-control">
                                     <option value="">-- Elija a el vendedor</option>
                                     @foreach ($sellers as $seller)
-                                        <option value="{{ $seller['id'] }}">{{ $seller['id'] }}. {{ $seller['name'] }}
+                                        <option value="{{ $seller['id'] }}">{{ $seller['id'] }}. {{ $users[($seller['user_id']-1)]->name}}
                                         </option>    
                                     @endforeach
                                 </select>

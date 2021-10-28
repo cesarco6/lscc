@@ -17,13 +17,13 @@ class ChoprospectsAddForeignkey extends Migration
                         
             $table->foreign('seller_id')->references('id')->on('sellers')
             ->onDelete('set null')
-            ->onUpdate('cascade');
+            ->onUpdate('cascade');           
         });
     }
 
     /**
      * Reverse the migrations.
-     *
+     *                              
      * @return void
      */
     public function down()
