@@ -45,7 +45,7 @@
                         <th>email</th>
                         <th>Ciudad</th>
                         <th>Producto</th>
-                        <th>Observaciones</th>
+                        <th style="max-width: 50px">Observaciones</th>
                         <th>Fecha</th>
                         <th>Vendedor</th>
                     </tr>
@@ -61,7 +61,7 @@
                             <td>{{$prospect->typeofprod}}</td>
                             <td style="font-size: 0.65rem">{{$prospect->review}}</td>
                             <td style="font-size: 0.65rem">{{$prospect->regis_at}}</td>
-                            <td style="font-size: 0.85rem">{{$prospect->seller->name}}</td>
+                            <td style="font-size: 0.85rem">{{$users[$prospect->seller->id]->name}}</td>
                         </tr>
                     @endforeach
                 </tbody> 

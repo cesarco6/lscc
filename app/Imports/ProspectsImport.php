@@ -24,6 +24,9 @@ class ProspectsImport implements ToModel
             'review'    =>  $row[6],
             'email' =>  $row[7],
             'regis_at'  =>  $row[8],  
+            'address'   =>  $row[9],  
+            'cp'        =>  $row[10],
+            'status'    =>  $row[11],    
         ]);
     }
 }

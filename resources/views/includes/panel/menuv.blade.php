@@ -22,15 +22,17 @@
       </a>
     </li>    
     <li class="nav-item">
-      <a class="nav-link" href="{{route('login')}}l">
+      <a class="nav-link" href="{{route('login')}}">
         <i class="ni ni-key-25 text-info"></i> Login
       </a>
     </li>
+    <!--
     <li class="nav-item">
       <a class="nav-link" href="./examples/register.html">
         <i class="ni ni-circle-08 text-pink"></i> Register
       </a>
     </li>
+    -->
     <li class="nav-item">
         <a class="nav-link" href="{{route('logout')}}"
             onclick="event.preventDefault();

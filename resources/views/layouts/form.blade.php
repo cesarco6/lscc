@@ -29,7 +29,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand" href="{{ url('/home') }}">
           <img src="{{asset('imags/lo3tra.png')}}"/>
       </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,7 +56,8 @@
           <ul class="navbar-nav ml-auto">
             
             @guest
-            @if (Route::has('login'))
+            <!--
+            @if (Route::has('register'))
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="{{ route('register') }}">
                       <i class="ni ni-circle-08"></i>
@@ -64,8 +65,8 @@
                     </a>
                 </li>
             @endif
-
-            @if (Route::has('register'))
+              -->
+            @if (Route::has('login'))
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="{{ route('login') }}">
                       <i class="ni ni-key-25"></i>
@@ -133,6 +134,9 @@
         </div>
         <div class="col-xl-6">
           <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+            <li class="nav-item">
+              <a href="http://www.lasersystems.com.mx/" class="nav-link" target="_blank">Nosotros</a>
+          </li>
             <li class="nav-item">
               <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Template (CT)</a>
             </li>                        

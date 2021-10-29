@@ -16,7 +16,7 @@
                 @endif                                                                                                                                      
                 @if($prospects->count())
                 <div class="table-responsive">
-                    <table class="table table-hover table-striped table-bordered table-responsive">
+                    <table class="table table-hover table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
@@ -25,7 +25,7 @@
                                 <th>email</th>
                                 <th>Ciudad</th>
                                 <th>Producto</th>
-                                <th style="max-width: 50px">Observaciones</th>
+                                <th>Observaciones</th>
                                 <th>Fecha</th>
                                 <th>Vendedor</th>
                             </tr>
@@ -41,7 +41,7 @@
                                     <td>{{$prospect->typeofprod}}</td>
                                     <td style="font-size: 0.75rem">{{substr ( $prospect->review, 0, 75);}}</td>
                                     <td style="font-size: 0.85rem">{{$prospect->regis_at}}</td>
-                                    <td style="font-size: 0.85rem">{{$user[$prospect->seller->id]->name}}</td>
+                                    <td style="font-size: 0.85rem">{{$user[($prospect->seller->user_id)-1]->name}}</td>
                                 </tr>
                             @endforeach
                         </tbody>

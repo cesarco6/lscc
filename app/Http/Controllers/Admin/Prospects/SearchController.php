@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Prospects;
 
+use App\Models\User;
 use App\Models\Prospect;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,6 +11,7 @@ class SearchController extends Controller
 {
     public function index(Request $request)
     {
+        //$users = User::all();
         $name = $request->get('name');
         $phone = $request->get('phone');
         $movil = $request->get('movil');
@@ -21,7 +23,8 @@ class SearchController extends Controller
                                                 ->phone($phone)
                                                 ->movil($movil)
                                                 ->email($email)
-                                                ->paginate()
+                                                ->paginate(5),
+                                            'users' =>  User::all()
                                             ]);
         
     

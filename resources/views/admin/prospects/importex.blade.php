@@ -17,11 +17,34 @@
                         @endif
                     <form action="{{ route('admin.prospects.import.excel') }}" method="post" enctype="multipart/form-data">
                         @csrf                                                
-                        <div class="form-group">
-                            <input type="file" name="file" class="btn btn-primary">
+                        <div class="form-group">    
+                                <div class="filegroup">
+                                    <input type="file" name="file" id="file-input"
+                                    accept=".xlsx, .xls, .cvs">
+                                <label for="file-input">    
+                                    Selecciona el archivo
+                                </label>
+                                <br> 
+                                <span>     
+                                    <strong>Archivo elegido:</strong>
+                                    <span id="file-name">Ninguno</span>
+                                </span>
+                                </div>
                         </div>                                    
-                        <button class="btn btn-primary">Importar Prospectos</button>
+                        <button class="btn btn-default" id="buttEna"><i class="fas fa-file-upload"></i> Da click aqui para subirlo</button>
                     </form>
+                        <script>
+                            let inputFile = document.getElementById('file-input');
+                            let fileNameField = document.getElementById('file-name');
+                            let enablebutton = document.getElementById('buttEna');
+                            enablebutton.disabled = true;
+                            inputFile.addEventListener("change", 
+                            function(event){
+                                let uploadedFileName = event.target.files[0].name;
+                                fileNameField.textContent = uploadedFileName;
+                                enablebutton.disabled = false;
+                            })
+                        </script>
                 </div>
             </div>
         </div>

@@ -2,3 +2,29 @@
 body {
     font-family: 'Nunito', sans-serif;
 }
+
+input#file-input{
+    display: none;
+}
+
+input#file-input + label{
+    background-color: rgb(76, 96, 161);
+    padding: 8px;
+    color: azure;
+    border-radius: 5px;
+    border: 2px solid #9ec3ff;
+}
+
+input#file-input + label:hover{
+    background-color: beige;
+    border-color: rgba(21, 21, 202, 0.377);
+    color: rgb(42, 85, 165);
+    cursor: pointer;
+}
+
+.filegroup{
+    margin: auto;
+  width: 95%;
+  border: 3px solid rgb(0, 45, 128);
+  padding: 5px;
+}
