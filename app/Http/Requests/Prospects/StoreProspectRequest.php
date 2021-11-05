@@ -32,7 +32,10 @@ class StoreProspectRequest extends FormRequest
             'city'  =>  'required',
             'typeofprod'    =>  'required',            
             'review'    =>  'required',
-            'regis_at'  =>  'required'
+            'regis_at'  =>  'required',
+            'address'   =>  'nullable',
+            'cp'        =>  'nullable',
+            'status'    =>  'nullable',
         ];
     }
 }

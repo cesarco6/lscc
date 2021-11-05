@@ -27,12 +27,13 @@ class ProspectsFactory extends Factory
             'movil' =>  $this->faker->phoneNumber,            
             'email' =>  $this->faker->unique()->email,
             'city'  =>  $this->faker->city,
-            'typeofprod'    =>  $this->faker->randomElement($array = array ('TERAPEUTICO','DENTAL','VETERINARIO','BEAUTY','SPORT')), // 'b'
+            'typeofprod'    =>  $this->faker->randomElement($array = array ('TERAPEUTICO','DENTAL','VETERINARIO','BEAUTY','SPORT')), 
             'seller_id' =>  $this->faker->biasedNumberBetween(1, 6),
             'review'    =>  $this->faker->text(),
-            'regis_at'  =>  $this->faker->dateTimeBetween('-41 week', '-1 week'),
+            'regis_at'  =>  $this->faker->dateTimeBetween('-26 week', '1 week'),
             'address'   =>  $this->faker->streetAddress,
-            'cp'        =>  $this->faker->postcode,            
+            'cp'        =>  $this->faker->postcode, 
+            'status'    =>  $this->faker->randomElement($array = array ('ACTIVO','INACTIVO','CERRADO')), 
         ];
     }
 }

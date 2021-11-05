@@ -14,6 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Prospect::factory(3300)->create();
+        Prospect::factory(5200)->create();
     }
 }

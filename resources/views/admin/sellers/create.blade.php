@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="offset-md-2 col-md-8">
+            <div class="offset-md-3 col-md-6">
                 <div class="card mt-3">
                     <div class="card-body">
                         <div class="d-flex">
@@ -11,6 +11,7 @@
                             <div class="ml-auto">                               
                             </div>
                         </div>
+                        <hr>
                         @if ($errors->count())                                    
                             <div class="alert alert-danger">
                             <ul> 
@@ -26,31 +27,31 @@
                             <input type="hidden" name="status" value="ACTIVO">
                             <div class="form-group">
                                 <label for="name" class="">Nombre:</label>
-                                <input type="text" class="form-control" name="name" value="{{old('name')}}">                        
+                                <input type="text" class="form-control" name="name">                        
                             </div>
                             <div class="form-group">
                                 <label for="phone" class="">Telefono:</label>
-                                <input type="text" class="form-control" name="phone" value="{{old('phone')}}">                        
+                                <input type="text" class="form-control" name="phone">                        
                             </div>
                             <div class="form-group">
                                 <label for="movil" class="">Celular:</label>
-                                <input type="text" class="form-control" name="movil" value="{{old('movil')}}">    
+                                <input type="text" class="form-control" name="movil">                        
                             </div>
                             <div class="form-group">
                                 <label for="email" class="">Correo electrónico</label>
-                                <input type="text" class="form-control" name="email" value="{{old('email')}}">      
+                                <input type="text" class="form-control" name="email">                        
                             </div>
                             <div class="form-group">
                                 <label for="city" class="">Ciudad</label>
-                                <input type="text" class="form-control" name="city" value="{{old('city')}}">                        
+                                <input type="text" class="form-control" name="city">                        
                             </div>
                             <div class="form-group">
                                 <label for="address" class="">Dirección</label>
-                                <input type="text" class="form-control" name="address" value="{{old('address')}}">                        
+                                <input type="text" class="form-control" name="address">                        
                             </div>
                             <div class="form-group">
                                 <label for="cp" class="">Código postal</label>
-                                <input type="text" class="form-control" name="cp" value="{{old('cp')}}"> 
+                                <input type="text" class="form-control" name="cp">                        
                             </div>
                             <div class="form-group">
                                 <label for="seller_id" class="">Vendedor:</label>
@@ -75,11 +76,11 @@
                             
                             <div class="form-group">
                                 <label for="regis" class="">Fecha de registro</label>
-                                <input type="date" class="form-control" name="regis_at" value="{{old('regis_at')}}">                        
+                                <input type="date" class="form-control" name="regis_at">                        
                             </div>
                             <div class="form-group">
                                 <label for="review" class="">Observaciones</label>
-                                <textarea class="form-control" name="review" rows="3">{{old('name')}}</textarea>                        
+                                <textarea class="form-control" name="review" rows="3"></textarea>                        
                             </div>
                             <button class="btn-primary float-right">Crea Prospecto</button>    
 

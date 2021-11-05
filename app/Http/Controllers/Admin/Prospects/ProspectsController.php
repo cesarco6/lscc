@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Seller;
 use App\Models\Prospect;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Prospects\StoreProspectRequest;
 
@@ -23,10 +24,14 @@ class ProspectsController extends Controller
             'prospects' =>  Prospect::latest()->paginate(5),
             'seller'   =>  Seller::latest()
         ]  */
-        $prospects = Prospect::latest()->paginate(5);
-        $nomt = Prospect::all();
-        $user = User::all();
-        return view('admin.prospects.index', compact('prospects', 'nomt','user'));
+        //$prospects = Prospect::latest()->paginate(3);
+        $prospects = DB::table('prospects')->latest()->limit(3)->get();
+
+                                                        
+        $nomt = Prospect::all();        
+        $sellers = Seller::all();
+        
+        return view('admin.prospects.index', compact('prospects', 'sellers','nomt'));
         
                                                     
         //dd($prospects);
@@ -40,8 +45,8 @@ class ProspectsController extends Controller
     public function create()
     {
         $sellers = Seller::all();
-        $users = User::all();
-        return view('admin.prospects.create',compact('sellers', 'users')); 
+        //$users = User::all();
+        return view('admin.prospects.create',compact('sellers')); 
         // Go to the prospects creation form
         //return view('admin.prospects.create', compact('sellers'));
         //dd($sellers);
@@ -58,7 +63,8 @@ class ProspectsController extends Controller
         // store prospect
         //return $request->validated();
         
-        $prospect = Prospect::create($request->only('seller_id','name','phone','movil','email','city','typeofprod','review','regis_at'));               
+        $prospect = Prospect::create($request->only('seller_id','name','phone','movil','email','city','typeofprod'
+                                                    ,'review','regis_at','address','cp', 'status'));               
         return redirect()->route('admin.prospects.dashboard')->with('success', 'Prospecto creado con éxito.');
         
     }
@@ -69,9 +75,10 @@ class ProspectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Prospect $prospect)
     {
-        //
+
+        return view('admin.prospects.show', compact('prospect'));
     }
 
     /**
@@ -80,9 +87,11 @@ class ProspectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Prospect $prospect)
     {
-        //
+        //$prospect = Prospect::find($id);
+        $sellers = Seller::all();
+        return view('admin.prospects.edit', compact('prospect', 'sellers'));
     }
 
     /**
@@ -92,9 +101,29 @@ class ProspectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Prospect $prospect)
     {
-        //
+        /*
+        $rules = [
+            'review' => 'required|min:200',
+            'status' => 'required'
+        ];
+        $messages = [
+            'review.required' =>  'Es necesario ingresar una revision.',
+            'status'    =>  'extensa mínimo 200 caracteres.'
+        ];
+        $this->validation($request, $rules, $messages);
+        
+        $prospect->review = $request->input('review');
+        $prospect->regis_at = $request->input('regis_at');
+        $prospect->status = $request->input('status');
+        */
+        //dd($request);
+        
+        $prospect->update($request->all());
+
+        //$prospect->save($request->only('review','regis_at','status'));         
+        return redirect()->route('admin.prospects.show',compact('prospect'))->with('success', 'Prospecto actualizado con exito.');
     }
 
     /**
@@ -103,9 +132,12 @@ class ProspectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Prospect $prospect)
     {
-        //
+        $prospect->delete();
+        return redirect()->route('admin.prospects.indexpro')->with('success', 'Prospecto eliminado con exito.');
     }
+
+
 
 }
