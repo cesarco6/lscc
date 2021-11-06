@@ -25,7 +25,7 @@ class ProspectsController extends Controller
             'seller'   =>  Seller::latest()
         ]  */
         //$prospects = Prospect::latest()->paginate(3);
-        $prospects = DB::table('prospects')->latest()->limit(3)->get();
+        $prospects = DB::table('prospects')->latest()->limit(5)->get();
 
                                                         
         $nomt = Prospect::all();        
@@ -134,8 +134,11 @@ class ProspectsController extends Controller
      */
     public function destroy(Prospect $prospect)
     {
+        $nombredproselim = $prospect->name;
         $prospect->delete();
-        return redirect()->route('admin.prospects.indexpro')->with('success', 'Prospecto eliminado con exito.');
+
+        $notif = 'El Prospecto '. $nombredproselim.' se ha eliminado correctamente.';
+        return redirect()->route('admin.prospects.indexpro')->with('success', $notif);
     }
 
 

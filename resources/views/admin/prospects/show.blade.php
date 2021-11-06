@@ -6,6 +6,11 @@
         <div class="offset-md-2 col-md-8">
             <div class="card mt-3">
                 <div class="card-header border-0">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success')}}
+                        </div>
+                        @endif           
                     <div class="row align-items-center">
                         <div class="col">
                         <h3 class="mb-0">Muestra el Prospecto</h3>
