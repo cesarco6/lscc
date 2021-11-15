@@ -26,7 +26,7 @@
         <thead class="thead-light">
           <tr>
             <th scope="col">Vendedor</th>
-            <th scope="col">prospectos Activos</th>
+            <th scope="col">prospectos activos</th>
             <th scope="col">operaciones</th>                    
           </tr>
         </thead>
@@ -37,7 +37,17 @@
               {{$item->user->name}}
             </th>
             <td>
-              {{$item->user->name}}
+              @php
+                  $cnt = 0; 
+               @endphp
+              @foreach ($item->prospects as $scpa)
+                @if(strcmp($scpa->status,'ACTIVO') == 0)
+                @php
+                    $cnt += 1;
+                @endphp
+                @endif    
+              @endforeach
+              {{$cnt}}
             </td>
             <td>
               <a href="#" class="btn btn-sm btn-primary">Muestra</a>

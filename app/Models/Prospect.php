@@ -36,6 +36,7 @@ class Prospect extends Model
             return $query->where('name', 'LIKE', "%$name%");
         }
     }
+   
     public function scopePhone($query, $phone)
     {
         if($phone)
@@ -58,4 +59,9 @@ class Prospect extends Model
         }
     }
     
+    public function scopeProspact($query)
+    {               
+            return $query->where('status', '=', 'ACTIVO'); 
+    }
+
 }

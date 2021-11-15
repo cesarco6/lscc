@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Prospects;
 
+use App\Support\Collection;
 use App\Models\User;
 use App\Models\Prospect;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
@@ -29,7 +31,7 @@ class SearchController extends Controller
                                                 ->phone($phone)
                                                 ->movil($movil)
                                                 ->email($email)
-                                                ->paginate(8),
+                                                ->cursorPaginate(),
                                             'users' =>  User::all()
                                             ]);
         
@@ -38,6 +40,16 @@ class SearchController extends Controller
 
     public function prosen()
     {
-        return view('admin.search.prosen');
+        
+        $fia1 = Prospect::select('name')        
+        ->groupBy('name')
+        ->havingRaw('count(*) > 1');
+
+               
+        $cnm = Prospect::whereIn('name', $fia1)
+                        ->orderBy('name', 'ASC')
+                        ->get();       
+        //dd($fia2);
+        return view('admin.search.prosen', compact('cnm'));
     }
 }

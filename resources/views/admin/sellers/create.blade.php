@@ -28,31 +28,12 @@
                             <div class="form-group">
                                 <label for="name" class="">Nombre:</label>
                                 <input type="text" class="form-control" name="name">                        
-                            </div>
-                            <div class="form-group">
-                                <label for="phone" class="">Telefono:</label>
-                                <input type="text" class="form-control" name="phone">                        
-                            </div>
-                            <div class="form-group">
-                                <label for="movil" class="">Celular:</label>
-                                <input type="text" class="form-control" name="movil">                        
-                            </div>
+                            </div>                           
                             <div class="form-group">
                                 <label for="email" class="">Correo electrónico</label>
                                 <input type="text" class="form-control" name="email">                        
                             </div>
-                            <div class="form-group">
-                                <label for="city" class="">Ciudad</label>
-                                <input type="text" class="form-control" name="city">                        
-                            </div>
-                            <div class="form-group">
-                                <label for="address" class="">Dirección</label>
-                                <input type="text" class="form-control" name="address">                        
-                            </div>
-                            <div class="form-group">
-                                <label for="cp" class="">Código postal</label>
-                                <input type="text" class="form-control" name="cp">                        
-                            </div>
+                            
                             <div class="form-group">
                                 <label for="seller_id" class="">Vendedor:</label>
                                 <select name="seller_id" id="inputsell" class="form-control">

@@ -28,7 +28,7 @@ class ProspectsController extends Controller
         $prospects = DB::table('prospects')->latest()->limit(5)->get();
 
                                                         
-        $nomt = Prospect::all();        
+        $nomt = Prospect::prospact();        
         $sellers = Seller::all();
         
         return view('admin.prospects.index', compact('prospects', 'sellers','nomt'));

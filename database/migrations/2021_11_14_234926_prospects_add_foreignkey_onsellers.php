@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ChoprospectsAddForeignkey extends Migration
+class ProspectsAddForeignkeyOnsellers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,7 @@ class ChoprospectsAddForeignkey extends Migration
      */
     public function up()
     {
-        Schema::table('prospects', function (Blueprint $table) {
-                        
+        Schema::table('prospects', function (Blueprint $table) {           
             $table->foreign('seller_id')->references('id')->on('sellers')
             ->onDelete('set null')
             ->onUpdate('cascade');           
@@ -23,7 +22,7 @@ class ChoprospectsAddForeignkey extends Migration
 
     /**
      * Reverse the migrations.
-     *                              
+     *
      * @return void
      */
     public function down()

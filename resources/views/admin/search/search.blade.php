@@ -59,7 +59,7 @@
                             <td style="font-size: 0.75rem">{{$prospect->email}}</td>
                             <td>{{$prospect->city}}</td>
                             <td>{{$prospect->typeofprod}}</td>
-                            <td style="font-size: 0.65rem">{{$prospect->review}}</td>
+                            <td class="col-md-3" style="font-size: 0.65rem">{{$prospect->review}}</td>
                             <td style="font-size: 0.65rem">{{$prospect->regis_at}}</td>
                             <td style="font-size: 0.85rem">{{$users[$prospect->seller->id]->name}}</td>
                         </tr>

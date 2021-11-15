@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 class SellerController extends Controller
 {
     /**
+     * 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -21,12 +22,14 @@ class SellerController extends Controller
             'seller'   =>  Seller::latest()
         ]  */
         //$prospects = Prospect::latest()->paginate(5);
-        $nomt = Prospect::all()->count();
+        $nomt = Prospect::all();
 
         $sellers = Seller::all();
+               
         return view('admin.sellers.index', compact('sellers','nomt'));
         
                                                     
+        
         //dd($prospects);
     }
 
@@ -37,7 +40,8 @@ class SellerController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sellers.create');
+        
     }
 
     /**

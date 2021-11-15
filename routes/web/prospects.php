@@ -10,12 +10,12 @@ use App\Http\Controllers\Admin\Prospects\ProspectsController;
 //prefix: prospects
 
 Route::get('/inicio', [SellerController::class, 'index'])->name('dashboard');
-Route::get('/selcreate', [SellerController::class, 'create']);
-Route::get('/seledit/{seller}/edit', [SellerController::class, 'edit']);
-Route::post('/selsto', [SellerController::class, 'store']);
-Route::get('/selsho/{seller}/show', [SellerController::class, 'show']);
-Route::put('/selup/{seller}', [SellerController::class, 'update']);
-Route::delete('/seldes/{seller}/destroy', [SellerController::class, 'destroy']);
+Route::get('/seller/create', [SellerController::class, 'create']);
+Route::get('/seller/{seller}/edit', [SellerController::class, 'edit']);
+Route::post('/seller', [SellerController::class, 'store']);
+Route::get('/seller/{seller}/show', [SellerController::class, 'show']);
+Route::put('/seller/{seller}/update', [SellerController::class, 'update']);
+Route::delete('/seller/{seller}/destroy', [SellerController::class, 'destroy']);
 
 Route::get('/prostabl', [ProspectsController::class, 'index'])->name('indexpro');
 Route::get('/create', [ProspectsController::class, 'create'])->name('create');
